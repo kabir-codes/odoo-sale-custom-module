@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form/header/t/button[@name='action_lock']" position="after">
                 <button name="action_form_sale_order" string="Form" type="object" class="btn-secondary"/>
+                <button name="action_saved_form_order" string="Saved Drafts" type="object" class="btn-secondary"/>
             </xpath>
             
         </field>

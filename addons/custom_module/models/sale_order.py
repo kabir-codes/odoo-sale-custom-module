@@ -13,4 +13,9 @@ class SaleOrder(models.Model):
         'target': 'new',
         'res_model': 'sale.order.form',
     }
-    
+    def action_saved_form_order(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': '#'
+        }

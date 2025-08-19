@@ -12,6 +12,11 @@
                         <field name="last_name"/>
                         <field name="date_of_birth"/>
                         <field name="select_occupancy" widget="selection"/>
+                        <footer>
+                            <button string="Send" name="send_startup_mail" type="object" class="btn-primary"/>
+                            <button string="Save Draft" name="save_draft" type="object" class="btn-dark"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
                     </group>
                 </sheet>
             </form>

@@ -9,3 +9,16 @@ class SaleOrderForm(models.TransientModel):
     date_of_birth = fields.Date(string="Date of Birth")
     select_occupancy = fields.Selection([('normal', 'In Progress'), ('done', 'Ready for next stage'), 
                                          ('blocked', 'Blocked')], string='State')
+    def send_startup_mail(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'self',
+            'url': '#',
+        }
+
+    def save_draft(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': '#'
+        }
