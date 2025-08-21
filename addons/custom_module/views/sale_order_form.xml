@@ -13,14 +13,32 @@
                         <field name="date_of_birth"/>
                         <field name="select_occupancy" widget="selection"/>
                         <footer>
-                            <button string="Send" name="send_startup_mail" type="object" class="btn-primary"/>
-                            <button string="Save Draft" name="save_draft" type="object" class="btn-dark"/>
+                            <button string="Save" name="save_draft" type="object" class="btn-dark"/>
                             <button string="Cancel" class="btn-default" special="cancel"/>
                         </footer>
                     </group>
                 </sheet>
             </form>
         </field>
+    </record>
+
+    <record id="view_order_saved_list" model="ir.ui.view">
+        <field name="name">view.order.saved.list</field>
+        <field name="model">sale.order.form</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="date_of_birth"/>
+                <field name="select_occupancy"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_saved_action" model="ir.actions.act_window">
+        <field name="name">Saved Drafts</field>
+        <field name="res_model">sale.order.form</field>
+        <field name="view_mode">tree, form</field>
     </record>
 
 </odoo>

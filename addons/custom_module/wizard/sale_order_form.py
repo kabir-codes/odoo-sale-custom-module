@@ -1,6 +1,6 @@
 from odoo import Command, _, api, fields, models
 
-class SaleOrderForm(models.TransientModel):
+class SaleOrderForm(models.Model):
     _name = 'sale.order.form'
     _description = 'Form Wizard'
 
@@ -9,16 +9,10 @@ class SaleOrderForm(models.TransientModel):
     date_of_birth = fields.Date(string="Date of Birth")
     select_occupancy = fields.Selection([('normal', 'In Progress'), ('done', 'Ready for next stage'), 
                                          ('blocked', 'Blocked')], string='State')
-    def send_startup_mail(self):
-        return {
-            'type': 'ir.actions.act_url',
-            'target': 'self',
-            'url': '#',
-        }
-
     def save_draft(self):
         return {
-            'type': 'ir.actions.act_url',
-            'target': 'new',
-            'url': '#'
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+            'res_model': 'sale.order.form',
+            'view_mode': 'tree,form',
         }
